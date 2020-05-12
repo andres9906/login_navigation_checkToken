@@ -17,11 +17,12 @@ class _CoursState extends State<Cours> {
 
     if(courses.length == 0){
       getCourses(pro.user.username, pro.user.token);
+      print(courses.length);
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cour"),
+        title: Text("Courses"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.exit_to_app),
@@ -46,8 +47,9 @@ class _CoursState extends State<Cours> {
       itemCount: this.courses.length,
       itemBuilder: (context, index){
         final name = this.courses[index].name;
+        final professor = this.courses[index].professor;
         print("ADDIIINNGGG");
-        return item(name);
+        return item(name,professor);
       },
     );
   }
@@ -68,10 +70,11 @@ class _CoursState extends State<Cours> {
 
   }
 
-  Widget item(String name){
+  Widget item(String name, String professor){
     return Card(
       child:ListTile(
         title: Text(name),
+        subtitle: Text("Professor: $professor"),
       ),
     );
   }
