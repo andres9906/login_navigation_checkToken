@@ -54,14 +54,13 @@ class Home extends StatelessWidget {
               child: Text("courses"),
               textColor: Colors.white
             ),
-            //CourseList(),
+            //CourseList(),                       COOMMMMMMMMMMEEEEEEEENNNNNNNNNTTTTTTTTEEEEEEDDDDDDDDD
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          print(pro.user.Name);
-          pro.logOut();
+          CourseList().addCourse(pro.user.username, pro.user.token);
         },
         child: Icon(Icons.add),
       ),

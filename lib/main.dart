@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_navigation/controllers/auth_controller.dart';
+import 'package:login_navigation/pages/courses.dart';
 import 'package:login_navigation/pages/home.dart';
 import 'package:login_navigation/pages/sign_up.dart';
 import 'package:login_navigation/pages/sing_in.dart';
@@ -55,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if(prov.user != null){
       print(prov.user);
-      return Home();
+      return Cour();
     }else{
       return SignIn();
     }
