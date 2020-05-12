@@ -4,16 +4,21 @@ import 'package:login_navigation/controllers/courses_controller.dart';
 import 'package:login_navigation/models/course.dart';
 import 'package:provider/provider.dart';
 
-class Cour extends StatefulWidget {
+class Cours extends StatefulWidget {
 
   @override
-  _CourState createState() => _CourState();
+  _CoursState createState() => _CoursState();
 }
 
-class _CourState extends State<Cour> {
+class _CoursState extends State<Cours> {
   @override
   Widget build(BuildContext context) {
     var pro = Provider.of<Auth>(context);
+
+    if(courses.length == 0){
+      getCourses(pro.user.username, pro.user.token);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Cour"),
@@ -47,12 +52,20 @@ class _CourState extends State<Cour> {
     );
   }
 
-  addCourse(String a, String b)async{
-    Course c = await Courses().addCourse(a, b);
+  addCourse(String username, String token)async{
+    Course c = await Courses().addCourse(username, token);
     setState(() {
       this.courses.add(c);
     });
     print(courses.length);
+  }
+
+  getCourses(String username, String token)async{
+    List<Course> tempC = await Courses().fetchCourses(username, token);
+    setState(() {
+      this.courses.addAll(tempC);
+    });
+
   }
 
   Widget item(String name){

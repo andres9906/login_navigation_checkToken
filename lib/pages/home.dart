@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:login_navigation/controllers/auth_controller.dart';
-import 'package:login_navigation/widgets/courseList.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -60,7 +59,7 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          CourseList().addCourse(pro.user.username, pro.user.token);
+         // CourseList().addCourse(pro.user.username, pro.user.token);
         },
         child: Icon(Icons.add),
       ),
