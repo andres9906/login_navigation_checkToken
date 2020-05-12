@@ -4,8 +4,13 @@ import 'package:login_navigation/controllers/courses_controller.dart';
 import 'package:login_navigation/models/course.dart';
 import 'package:provider/provider.dart';
 
-class Cour extends StatelessWidget {
+class Cour extends StatefulWidget {
 
+  @override
+  _CourState createState() => _CourState();
+}
+
+class _CourState extends State<Cour> {
   @override
   Widget build(BuildContext context) {
     var pro = Provider.of<Auth>(context);
@@ -29,8 +34,8 @@ class Cour extends StatelessWidget {
     );
   }
 
-
   List<Course> courses = new List<Course>();
+
   Widget courseList() {
     return ListView.builder(
       itemCount: this.courses.length,
@@ -43,7 +48,10 @@ class Cour extends StatelessWidget {
   }
 
   addCourse(String a, String b)async{
-    this.courses.add(await Courses().addCourse(a, b));
+    Course c = await Courses().addCourse(a, b);
+    setState(() {
+      this.courses.add(c);
+    });
     print(courses.length);
   }
 
@@ -54,6 +62,4 @@ class Cour extends StatelessWidget {
       ),
     );
   }
-
-  
 }
