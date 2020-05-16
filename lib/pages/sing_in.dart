@@ -31,11 +31,6 @@ class SignIn extends StatelessWidget{
   }
 
 
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     var prov = Provider.of<Auth>(context);

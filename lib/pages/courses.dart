@@ -21,17 +21,17 @@ class _CoursState extends State<Cours> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Courses"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: (){
-              pro.logOut();
-            }
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: Text("Courses"),
+      //   actions: <Widget>[
+      //     IconButton(
+      //       icon: Icon(Icons.exit_to_app),
+      //       onPressed: (){
+      //         pro.logOut();
+      //       }
+      //     ),
+      //   ],
+      // ),
       body: courseList(),
       floatingActionButton: FloatingActionButton(
         onPressed: (){addCourse(pro.user.username, pro.user.token);},
@@ -56,18 +56,22 @@ class _CoursState extends State<Cours> {
 
   addCourse(String username, String token)async{
     Course c = await Courses().addCourse(username, token);
-    setState(() {
-      this.courses.add(c);
-    });
-    print(courses.length);
+    if(mounted){
+      setState(() {
+          this.courses.add(c);
+      });
+      print(courses.length);
+    }
   }
 
   getCourses(String username, String token)async{
     List<Course> tempC = await Courses().fetchCourses(username, token);
-    setState(() {
-      this.courses.addAll(tempC);
-    });
 
+    if(mounted){
+      setState(() {
+      this.courses.addAll(tempC);
+      });
+    }
   }
 
   Widget item(String name, String professor){

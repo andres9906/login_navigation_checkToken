@@ -63,8 +63,4 @@ class Auth extends ChangeNotifier{
     //Webservice().check(user.token);
   }
 
-  Future<void> getCourses() async {
-    Webservice().getCourses(user.username, user.token);
-  }
-
 }
