@@ -14,4 +14,12 @@ class Course{
       students: json['students'],
     );
   }
+
+  factory Course.fromJson2(Map<String, dynamic> json) {
+    return Course(
+      name: json['name'],
+      professor: json['professor'],
+      students: json['students'],
+    );
+  }
 }

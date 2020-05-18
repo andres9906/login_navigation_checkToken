@@ -9,4 +9,8 @@ class Courses{
   Future<List<Course>> fetchCourses(String username, String token)async {
     return await CourseService().getCourses(username, token);
   }
+
+  Future<Course> fetchCourse(String username, String token, int cid)async {
+    return await CourseService().getCourse(username, token, cid);
+  }
 }

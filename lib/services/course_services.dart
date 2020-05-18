@@ -26,6 +26,21 @@ class CourseService{
     return null;
   }
 
+  Future<Course> getCourse(String username, String token, int cid) async{
+    Uri uri = Uri.https("movil-api.herokuapp.com", '$username/courses/$cid');
+    final http.Response response = await http.get(
+      uri,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: "Bearer " + token,
+      },
+    );  
+    if(response.statusCode == 200){
+      return Course.fromJson2(json.decode(response.body));
+    }
+    return null;
+  }
+
   Future<Course> createCourse(String username, String token) async{
     Uri uri = Uri.https("movil-api.herokuapp.com", '$username/courses');
     final http.Response response = await http.post(

@@ -8,6 +8,10 @@ class Professors{
     return await ProfessorService().getProfessors(username, token);
   }
 
+  Future<Professor> fetchProfessor(String username, String token, int pid)async {
+    return await ProfessorService().getProfessor(username, token, pid);
+  }
+
 
   // Future<Student> addCourse(String username, String token)async {
   //   return await StudentService().(username, token);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_navigation/controllers/auth_controller.dart';
 import 'package:login_navigation/controllers/professors_controller.dart';
 import 'package:login_navigation/models/professor.dart';
-import 'package:login_navigation/pages/single_professors.dart';
+import 'package:login_navigation/pages/single_professor.dart';
 import 'package:provider/provider.dart';
 
 class ProfessorsView extends StatefulWidget{

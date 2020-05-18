@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_navigation/controllers/auth_controller.dart';
 import 'package:login_navigation/controllers/courses_controller.dart';
 import 'package:login_navigation/models/course.dart';
+import 'package:login_navigation/pages/single_course.dart';
 import 'package:provider/provider.dart';
 
 class Cours extends StatefulWidget {
@@ -83,7 +84,7 @@ class _CoursState extends State<Cours> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              // builder: (context) => Single_course(professor: p),
+              builder: (context) => Single_course(course: c),
             ),
           );
         },

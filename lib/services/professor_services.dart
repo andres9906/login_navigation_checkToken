@@ -25,6 +25,20 @@ class ProfessorService{
     return null;
   }
 
+  Future<Professor> getProfessor(String username, String token, int pid) async{
+    Uri uri = Uri.https("movil-api.herokuapp.com", '$username/professors/$pid');
+    final http.Response response = await http.get(
+      uri,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: "Bearer " + token,
+      },
+    );
+    if(response.statusCode == 200){
+      return Professor.fromJson2(json.decode(response.body));
+    }
+  }
+
   // Future<Professor> createProfessor(String username, String token) async{
   //   Uri uri = Uri.https("movil-api.herokuapp.com", '$username/professors');
   //   final http.Response response = await http.post(

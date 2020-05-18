@@ -25,6 +25,22 @@ class StudentService{
     return null;
   }
 
+  Future<Student> getStudent(String username, String token, int sid) async{
+    Uri uri = Uri.https("movil-api.herokuapp.com", '$username/students/$sid');
+    final http.Response response = await http.get(
+      uri,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: "Bearer " + token,
+      },
+    );
+
+    if(response.statusCode == 200){
+      return Student.fromJson2(json.decode(response.body));
+    }
+    return null;
+  }
+
   // Future<Student> createStudent(String username, String token) async{
   //   Uri uri = Uri.https("movil-api.herokuapp.com", '$username/students');
   //   final http.Response response = await http.post(
