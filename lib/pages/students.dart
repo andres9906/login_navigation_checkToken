@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_navigation/controllers/auth_controller.dart';
 import 'package:login_navigation/controllers/students_controller.dart';
 import 'package:login_navigation/models/student.dart';
+import 'package:login_navigation/pages/single_student.dart';
 import 'package:provider/provider.dart';
 
 class StudentsView extends StatefulWidget{
@@ -43,16 +44,24 @@ class _StudentsViewState extends State<StudentsView> {
         final name = this.students[index].name;
         final email = this.students[index].email;
         print("ADDIIINNGGG");
-        return item(name, email);
+        return item(this.students[index]);
       },
     );
   }
 
-  Widget item(String name, String email){
+  Widget item(Student s){
     return Card(
       child:ListTile(
-        title: Text(name),
-        subtitle: Text("Email: $email"),
+        title: Text(s.name),
+        subtitle: Text("Email: ${s.email}"),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Single_student(student: s),
+            ),
+          );
+        },
       ),
     );
   }

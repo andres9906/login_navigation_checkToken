@@ -49,7 +49,7 @@ class _CoursState extends State<Cours> {
         final name = this.courses[index].name;
         final professor = this.courses[index].professor;
         print("ADDIIINNGGG");
-        return item(name,professor);
+        return item(this.courses[index]);
       },
     );
   }
@@ -74,11 +74,19 @@ class _CoursState extends State<Cours> {
     }
   }
 
-  Widget item(String name, String professor){
+  Widget item(Course c){
     return Card(
       child:ListTile(
-        title: Text(name),
-        subtitle: Text("Professor: $professor"),
+        title: Text(c.name),
+        subtitle: Text("Professor: ${c.professor}"),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              // builder: (context) => Single_course(professor: p),
+            ),
+          );
+        },
       ),
     );
   }
