@@ -14,10 +14,10 @@ class StudentService{
         HttpHeaders.authorizationHeader: "Bearer " + token,
       },
     );
-    print(uri.toString());
-    print('token $token');
-    print('${response.statusCode}');
-    print('response -> ${response.body}');    
+    // print(uri.toString());
+    // print('token $token');
+    // print('${response.statusCode}');
+    // print('response -> ${response.body}');    
     if(response.statusCode == 200){
       Iterable json = jsonDecode(response.body);
       return json.map((student)=>Student.fromJson(student)).toList();
@@ -35,6 +35,7 @@ class StudentService{
       },
     );
 
+    // print('response -> ${response.body}');  
     if(response.statusCode == 200){
       return Student.fromJson2(json.decode(response.body));
     }

@@ -14,10 +14,10 @@ class ProfessorService{
         HttpHeaders.authorizationHeader: "Bearer " + token,
       },
     );
-    print(uri.toString());
-    print('token $token');
-    print('${response.statusCode}');
-    print('response -> ${response.body}');    
+    // print(uri.toString());
+    // print('token $token');
+    // print('${response.statusCode}');
+    // print('response -> ${response.body}');    
     if(response.statusCode == 200){
       Iterable json = jsonDecode(response.body);
       return json.map((professor)=>Professor.fromJson(professor)).toList();

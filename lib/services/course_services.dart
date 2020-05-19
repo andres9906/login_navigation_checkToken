@@ -15,10 +15,10 @@ class CourseService{
         HttpHeaders.authorizationHeader: "Bearer " + token,
       },
     );
-    print(uri.toString());
-    print('token $token');
-    print('${response.statusCode}');
-    print('response -> ${response.body}');    
+    // print(uri.toString());
+    // print('token $token');
+    // print('${response.statusCode}');
+    // print('response -> ${response.body}');    
     if(response.statusCode == 200){
       Iterable json = jsonDecode(response.body);
       return json.map((course)=>Course.fromJson(course)).toList();
@@ -34,7 +34,13 @@ class CourseService{
         'Content-Type': 'application/json; charset=UTF-8',
         HttpHeaders.authorizationHeader: "Bearer " + token,
       },
-    );  
+    ); 
+
+    // print(uri.toString());
+    // print('token $token');
+    // print('${response.statusCode}');
+    // print('response -> ${response.body}');  
+
     if(response.statusCode == 200){
       return Course.fromJson2(json.decode(response.body));
     }
@@ -50,14 +56,14 @@ class CourseService{
         HttpHeaders.authorizationHeader: "Bearer " + token,
       },
     );
-    print(uri.toString());
-    print('token $token');
-    print('${response.statusCode}');
-    print('response -> ${response.body}');    
+    // print(uri.toString());
+    // print('token $token');
+    // print('${response.statusCode}');
+    // print('response -> ${response.body}');    
     if(response.statusCode == 200){
       return Course.fromJson(json.decode(response.body));
     }
-    print("COURSEEEEEE ERRORRRR");
+    // print("COURSEEEEEE ERRORRRR");
     return null;
   }  
 

@@ -21,6 +21,12 @@ class _Single_professorState extends State<Single_professor> {
   Professor professorfull;
 
   String name = "";
+  String phone = "";
+  String un = "";
+  String email = "";
+  String city = "";
+  String country = "";
+  String birthday = "";
 
 
   _Single_professorState(this.professor);
@@ -43,6 +49,13 @@ class _Single_professorState extends State<Single_professor> {
         setState(() {
             professorfull = value;
             name = value.name;
+            phone = value.phone;
+            un = value.username;
+            print("-------------------"+username);
+            email = value.email;
+            city = value.city;
+            country = value.country;
+            birthday = value.birthday;
         });
       }
     });
@@ -51,16 +64,79 @@ class _Single_professorState extends State<Single_professor> {
   Widget professorShow(){
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student'),
+        title: Text(name)
       ),
       body: Center(
         child: Container(
-          child: Text(name,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-            textAlign: TextAlign.center,
-          )
+          width: double.infinity,
+          padding: const EdgeInsets.only(top: 10),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: Colors.white,
+                  child: Text("Details",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 30, color: Colors.blue),
+                  ),
+                  alignment: Alignment.center,
+                ),
+              ),
+              Expanded(
+                flex: 6,
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(10),
+                  color: Color.fromRGBO( 227, 227, 227 , 1),
+                  child: Column(
+                    children: <Widget>[
+                      showInfo("Name:       "+name),
+                      Divider(
+                        color: Colors.black
+                      ),
+                      showInfo("Username:         "+un),
+                      Divider(
+                        color: Colors.black
+                      ),
+                      showInfo("Phone:        "+phone),
+                      Divider(
+                        color: Colors.black
+                      ),
+                      showInfo("Email:       "+email),
+                      Divider(
+                        color: Colors.black
+                      ),
+                      showInfo("City:       "+city),
+                      Divider(
+                        color: Colors.black
+                      ),
+                      showInfo("Country:    "+country),
+                      Divider(
+                        color: Colors.black
+                      ),
+                      showInfo("Birthday:       "+birthday),
+                    ],
+                  ),
+                )
+              )
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget showInfo(String info){
+    return(
+      Expanded(
+        child: Container(
+          child: Text(info,
+          style: TextStyle(fontSize: 16,color: Colors.black),),
+          width: double.infinity,
+          alignment: Alignment.centerLeft,
+        ),
+      )
     );
   }
 

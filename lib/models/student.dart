@@ -13,7 +13,12 @@ class Student{
   Student({this.id, this.name, this.email,this.username, this.phone, this.course_id, this.country, this.city, this.birthday});
 
   String get Name{
-    return name;
+    if(name != null){
+      return name;
+    }else{
+      return("");
+    }
+    
   }
 
   factory Student.fromJson(Map<String, dynamic> json) {
@@ -37,4 +42,13 @@ class Student{
       phone: json['phone'],
     );
   }
+
+  // factory Student.fromJson3(Map<String, dynamic> json) {
+
+  //   List<Student> students = new List<Student>();
+
+  //   json.forEach((key, value) {students.add(Student.fromJson2(value));});
+
+  //   return(students);
+  // }
 }

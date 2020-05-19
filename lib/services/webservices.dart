@@ -15,12 +15,12 @@ class Webservice {
     );
     
     if (response.statusCode == 200) {
-      print('${response.body}');
-      print('allesokSignInBaby');
+      // print('${response.body}');
+      // print('allesokSignInBaby');
       return User.fromJson(json.decode(response.body));
     } else {
-      print("signup failed");
-      print('${response.body}');
+      // print("signup failed");
+      // print('${response.body}');
       return null;
       //throw Exception(response.body);
     }
@@ -38,12 +38,12 @@ class Webservice {
     );
 
     if (response.statusCode == 200) {
-      print('${response.body}');
-      print('allesokbaby UP');
+      // print('${response.body}');
+      // print('allesokbaby UP');
       return User.fromJson(json.decode(response.body));
     } else {
-      print("signup failed");
-      print('${response.body}');
+      // print("signup failed");
+      // print('${response.body}');
       //throw Exception(response.body);
       return null;
     }
@@ -62,12 +62,12 @@ class Webservice {
     );
 
     if (response.statusCode == 200) {
-      print('${response.body}');
+      // print('${response.body}');
       isValid = json.decode(response.body)['valid'];
-      print(isValid);
+      // print(isValid);
     } else {
-      print("error");
-      print('${response.body}');
+      // print("error");
+      // print('${response.body}');
       //throw Exception(response.body);
       //return null;
     }

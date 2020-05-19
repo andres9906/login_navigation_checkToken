@@ -43,7 +43,7 @@ class _StudentsViewState extends State<StudentsView> {
       itemBuilder: (context, index){
         final name = this.students[index].name;
         final email = this.students[index].email;
-        print("ADDIIINNGGG");
+        // print("ADDIIINNGGG");
         return item(this.students[index]);
       },
     );

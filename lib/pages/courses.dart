@@ -49,7 +49,9 @@ class _CoursState extends State<Cours> {
       itemBuilder: (context, index){
         final name = this.courses[index].name;
         final professor = this.courses[index].professor;
-        print("ADDIIINNGGG");
+        // print("-------------------------id");
+        // print(this.courses[index].id);
+        // print("-------------------------id");
         return item(this.courses[index]);
       },
     );
