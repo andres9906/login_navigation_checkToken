@@ -130,15 +130,15 @@ class _Single_courseState extends State<Single_course> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.calendar_view_day),
             title: Text('Courses'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.person),
             title: Text('Professor'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.people),
             title: Text('Students'),
           ),
         ],
