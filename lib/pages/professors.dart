@@ -28,8 +28,8 @@ class _ProfessorsViewState extends State<ProfessorsView> {
   List<Professor> professors = new List<Professor>();
 
   getProfessors(String username, String token) async {
-    List<Professor> tempS = await Professors().fetchProfessors(username, token);
-    if(mounted){
+    List<Professor> tempS = await Professors().fetchProfessors(username, token, context);
+    if(mounted && tempS != null){
       setState(() {
           this.professors.addAll(tempS);
       });

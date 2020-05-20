@@ -68,7 +68,7 @@ class _Single_courseState extends State<Single_course> {
   }
 
   getCourse(String username, String token) async {
-    Courses().fetchCourse(username, token, course.id).then((value){
+    Courses().fetchCourse(username, token, course.id, context).then((value){
       if(mounted){
         setState(() {
             coursefull = value;
