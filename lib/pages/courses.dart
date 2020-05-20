@@ -58,7 +58,7 @@ class _CoursState extends State<Cours> {
   }
 
   addCourse(String username, String token)async{
-    Course c = await Courses().addCourse(username, token);
+    Course c = await Courses().addCourse(username, token, context);
     if(mounted){
       setState(() {
           this.courses.add(c);
@@ -68,9 +68,9 @@ class _CoursState extends State<Cours> {
   }
 
   getCourses(String username, String token)async{
-    List<Course> tempC = await Courses().fetchCourses(username, token);
+    List<Course> tempC = await Courses().fetchCourses(username, token, context);
 
-    if(mounted){
+    if(mounted && tempC != null){
       setState(() {
       this.courses.addAll(tempC);
       });

@@ -43,7 +43,7 @@ class _Singel_studentState extends State<Single_student> {
   }
 
   getStudent(String username, String token) async {
-    Students().fetchStudent(username, token, student.id).then((value){
+    Students().fetchStudent(username, token, student.id, context).then((value){
       if(mounted){
         setState(() {
             studentfull = value;

@@ -28,8 +28,8 @@ class _StudentsViewState extends State<StudentsView> {
   List<Student> students = new List<Student>();
 
   getStudents(String username, String token) async {
-    List<Student> tempS = await Students().fetchStudents(username, token);
-    if(mounted){
+    List<Student> tempS = await Students().fetchStudents(username, token, context);
+    if(mounted && tempS != null){
       setState(() {
           this.students.addAll(tempS);
       });

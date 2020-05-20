@@ -44,7 +44,7 @@ class _Single_professorState extends State<Single_professor> {
   }
 
   getProfessor(String username, String token) async {
-    Professors().fetchProfessor(username, token, professor.id).then((value){
+    Professors().fetchProfessor(username, token, professor.id, context).then((value){
       if(mounted){
         setState(() {
             professorfull = value;
