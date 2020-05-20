@@ -50,7 +50,6 @@ class Auth extends ChangeNotifier{
     
     if(name != null && username != null && token != null && name.isNotEmpty && username.isNotEmpty && token.isNotEmpty){
       user = User(name: name, username: username, token: token);
-      print("retrieving data form SHARED REFERENCES BABY");
       notifyListeners();
     }
   }
