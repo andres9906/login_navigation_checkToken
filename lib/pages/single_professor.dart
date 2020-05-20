@@ -51,7 +51,6 @@ class _Single_professorState extends State<Single_professor> {
             name = value.name;
             phone = value.phone;
             un = value.username;
-            print("-------------------"+username);
             email = value.email;
             city = value.city;
             country = value.country;

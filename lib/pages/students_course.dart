@@ -34,7 +34,6 @@ class _Students_courseState extends State<Students_course> {
       itemBuilder: (context, index){
         final name = this.list[index].name;
         final email = this.list[index].email;
-        // print("ADDIIINNGGG");
         return item(this.list[index]);
       },
     );
@@ -55,6 +54,5 @@ class _Students_courseState extends State<Students_course> {
         },
       ),
     );
-
   }
 }

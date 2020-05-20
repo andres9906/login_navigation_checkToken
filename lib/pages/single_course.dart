@@ -93,7 +93,7 @@ class _Single_courseState extends State<Single_course> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            title: Text('Courses'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
