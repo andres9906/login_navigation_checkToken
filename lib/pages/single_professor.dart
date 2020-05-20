@@ -62,9 +62,9 @@ class _Single_professorState extends State<Single_professor> {
 
   Widget professorShow(){
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(name)
-      // ),
+      appBar: AppBar(
+        title: Text(name)
+      ),
       body: Center(
         child: Container(
           width: double.infinity,
