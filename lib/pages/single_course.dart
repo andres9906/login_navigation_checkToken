@@ -34,10 +34,21 @@ class _Single_courseState extends State<Single_course> {
 
   int _selectedIndex = 0;
 
+  bool _show = true;
+
   _Single_courseState(this.course);
 
   void _onItemTapped(int index) {
     setState(() {
+      if(index == 0){
+        showBottomBar();
+      }else{
+        if(index == 1){
+          hideBottomBar();
+        }else{
+          showBottomBar();
+        }
+      }
       _selectedIndex = index;
     });
   }
@@ -81,11 +92,38 @@ class _Single_courseState extends State<Single_course> {
     });
   }
 
+  void showBottomBar() {
+    setState(() {
+      _show = true;
+    });
+  }
+
+  void hideBottomBar() {
+    setState(() {
+      _show = false;
+    });
+  }
+
   Widget courseShow(){
     return Scaffold(
-      appBar: AppBar(
+
+      // appBar: _showAppbar
+      //     ? AppBar(
+      //   title: Text('My Tasks'),
+      // ),
+
+      appBar: _show
+          ? AppBar(
         title: Text(name),
+      )
+          : PreferredSize(
+        child: Container(),
+        preferredSize: Size(0.0, 0.0),
       ),
+
+      // appBar: _showAppbar ?AppBar(
+      //   title: Text(name),
+      // ),
       body: Center(
         child: showSelected(),
       ),
